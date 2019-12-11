@@ -22,7 +22,11 @@ public class App {
         
         event = ctx.getBean(Event.class);
         app.logEvent(event, "Some event for 2");
-        
+        app.logEvent(event, "Some event for 3");
+        app.logEvent(event, "Some event for 4");
+        app.logEvent(event, "Some event for 5");
+        app.logEvent(event, "Some event for 6");
+
         ctx.close();
     }
     

@@ -6,13 +6,14 @@ import java.util.function.Consumer;
 
 import com.yet.spring.core.beans.Event;
 
-public class CacheFileEventLogger extends FileEventLogger {
+public class CacheFileEventLogger implements EventLogger {
 
 	private int cacheSize;
 	private List<Event> cache;
+	private FileEventLogger fileEventLogger;
 
-	public CacheFileEventLogger(String filename, int cacheSize) {
-		super(filename);
+	public CacheFileEventLogger(FileEventLogger fileEventLogger, int cacheSize) {
+		this.fileEventLogger = fileEventLogger;
 		this.cacheSize = cacheSize;
 		this.cache = new ArrayList<Event>(cacheSize);
 	}
@@ -34,7 +35,7 @@ public class CacheFileEventLogger extends FileEventLogger {
 	}
 
 	private void writeEventsFromCache() {
-	    cache.stream().forEach(super::logEvent);
+	    cache.stream().forEach(fileEventLogger::logEvent);
 	}
 
 }

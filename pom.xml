@@ -14,7 +14,7 @@
 
 		<spring.version>5.2.1.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
-		<commons.io.version>2.4</commons.io.version>
+		<commons.io.version>2.7</commons.io.version>
 	</properties>
 
 	<dependencies>
